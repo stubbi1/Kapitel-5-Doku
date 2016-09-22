@@ -1,3 +1,52 @@
+Kapitel 5 Klassen und Objekte
+
+Definitionen
+
+Klassen
+
+Auf primitive Datentypen wird verzichtet
+Klassen definieren neue Typen die auf die jeweiligen Typen zugeschnitten werden kÃ¶nnen
+Sie kÃ¶nnen eine Vielzahl von Werten Speichern
+Sie werden durch Eigenschaften (Attribute) und FÃ¤higkeiten (Methoden) beschrieben
+
+Attribute
+
+Fester Bestandteil einer Klasse
+FÃ¼r gewÃ¶hnlich kleingeschrieben
+Beschreiben die Eigenschaften eines Objekte
+
+Objekte
+
+Ist ein Oberbegriff z.B. ein Stein, beschreibt aber nicht die Farbe, Gewicht, Aussehen
+
+Packages
+
+Dienen dazu mehrere zusammengehÃ¶rige Klassen zusammenzufassen und die Verwaltung  grÃ¶ÃŸerer Programme zu vereinfachen
+
+Vererbung
+
+Beispiel Kind = Subklasse, Eltern = Superklasse
+Subklasse bekommt von Superklasse Attribute und Methoden vererbt besitzt dazu aber auch noch eigene Eigenschaften.
+
+Methoden
+
+Kann nur in Klasse deklariert werden
+Besteht aus Kopf (Ãœberschrift) und Rumpf
+Im Rumpf wird festgelegt, welche VorgÃ¤nge mit dem Aufruf der Methode ablaufen sollen
+
+Konstruktor
+
+Eine Klasse kann keinen, einen oder mehrere unterschiedliche Konstruktoren besitzen. 
+Sie dienen dazu, ein neu gebildetes Objekt einer Klasse in einen definierten Anfangszustand zu versetzen. 
+ Wird lediglich ein leerer (Standard-) Konstruktor ohne ParameterÃ¼bergabe benÃ¶tigt, so muss dieser nicht ausdrÃ¼cklich angegeben werden. 
+Er wird bei Fehlen vom Compiler automatisch erzeugt. Allerdings ist dies nur der Fall, solange kein weiterer Konstruktor deklariert wurde. 
+Werden neben weiteren Konstruktoren auch ein leerer Konstruktor benÃ¶tigt, so muss dieser explizit angegeben werden.
+
+Ich habe mich fÃ¼r Ihr Beispiel entschieden, da es sehr gut alle oben erklÃ¤rten Bestanteile eines Objektorientierten 
+Java Programms beinhaltet. Desweiteren hÃ¤tte ich selbst kein anschaulicheres Beispiel hinbekommen.
+
+
+
 package JavaUebung5;
 
 /**
@@ -5,10 +54,10 @@ package JavaUebung5;
  */
 public class Bruch {
 
-    // Zum zählen, wie viele Bruch Objekte von dieser Klasse erstellt wurden
+    // Zum zÃ¤hlen, wie viele Bruch Objekte von dieser Klasse erstellt wurden
     static int anzahlBrueche = 0;
 
-    // Variablen, in der jedes Objekt seine Werte für Nenner und Zähler speichern kann
+    // Variablen, in der jedes Objekt seine Werte fÃ¼r Nenner und ZÃ¤hler speichern kann
     private int zaheler;
     private int nenner;
 
@@ -31,25 +80,25 @@ public class Bruch {
     }
 
     /**
-     * Konstruktor der Nenner und Zähler als Parameter aktzeptiert und für das neue Objekt erzeugt
+     * Konstruktor der Nenner und ZÃ¤hler als Parameter aktzeptiert und fÃ¼r das neue Objekt erzeugt
      * @param z
      * @param n
      */
     Bruch (int z, int n){
         // ruft die Methode setze(z,n) auf um die Werte zu setzen
         setze(z,n);
-        // erhöht die statische (Klassen Variable) vom Objekt aus, so das wir zählen können wie viele Objekte erstellt wurden
+        // erhÃ¶ht die statische (Klassen Variable) vom Objekt aus, so das wir zÃ¤hlen kÃ¶nnen wie viele Objekte erstellt wurden
         anzahlBrueche++;
     }
 
     /**
-     *  Gibt:  "Zähler / Nenner"  auf der Konsole aus, wenn Nenner != 1 sonst nur Nenner (als ganze Zahl)
+     *  Gibt:  "ZÃ¤hler / Nenner"  auf der Konsole aus, wenn Nenner != 1 sonst nur Nenner (als ganze Zahl)
      */
     void ausgeben(){
         System.out.println(getZaheler() + (getNenner() == 1 ? "":"/"+ getNenner()));
 
         /*
-        * Die Ausführliche Variante zu der obigen Zeile - besser verständlich, aber mehr zu Tippen
+        * Die AusfÃ¼hrliche Variante zu der obigen Zeile - besser verstÃ¤ndlich, aber mehr zu Tippen
         if(nenner == 1){
             System.out.println( zaheler );
         }
@@ -62,8 +111,8 @@ public class Bruch {
     }
 
     /**
-     * Kürz den Bruch in dem mittels Moodulo Operator (Rest) und einer Schleige der ggT bestimmt wird
-     * Der Bruch wird dann entsprechend gekürtzt und diese Werte gesetzt
+     * KÃ¼rz den Bruch in dem mittels Moodulo Operator (Rest) und einer Schleige der ggT bestimmt wird
+     * Der Bruch wird dann entsprechend gekÃ¼rtzt und diese Werte gesetzt
      */
     void kuerzen(){
         int hz, hn, r; // Deklaration
@@ -71,20 +120,20 @@ public class Bruch {
         hz = getZaheler();  //Wertzuweisung
         hn = getNenner();
 
-        r  = hz % hn;  // der Rest veim Teilen von Zähler / Nenner
+        r  = hz % hn;  // der Rest veim Teilen von ZÃ¤hler / Nenner
 
         while(r > 0){  // Solange wie es einen Rest git, weiter teilen
             hz  = hn;
             hn = r;
             r = hz % hn;
         }
-        // neuem gekürzte Werte Zetzen
+        // neuem gekÃ¼rzte Werte Zetzen
         setZaheler(getZaheler() /hn);
         setNenner(getNenner()  / hn);
     }
 
     /**
-     * Kürzen des Bruchs und anschließende Ausgabe
+     * KÃ¼rzen des Bruchs und anschlieÃŸende Ausgabe
      */
     void gekuerztausgeben(){
         kuerzen();      // Methoden aufruf
@@ -105,7 +154,7 @@ public class Bruch {
     }
 
     /**
-     * Setzt den Zähler und nimmt für den Nenner 1 an
+     * Setzt den ZÃ¤hler und nimmt fÃ¼r den Nenner 1 an
      * @param z
      */
     void setze(int z){
@@ -113,7 +162,7 @@ public class Bruch {
     }
 
     /**
-     * Setzt den Zähler auf den Wert z und den Nenner auf den Wert n
+     * Setzt den ZÃ¤hler auf den Wert z und den Nenner auf den Wert n
      * @param z
      * @param n
      */
@@ -135,7 +184,7 @@ public class Bruch {
     }
 
     /**
-     * Gibt den Dezimalwert des Bruchs zurück
+     * Gibt den Dezimalwert des Bruchs zurÃ¼ck
      * @return
      */
     double dezimalwert(){
@@ -143,7 +192,7 @@ public class Bruch {
     }
 
     /**
-     * Gibt 0 Zurück, wenn ...
+     * Gibt 0 ZurÃ¼ck, wenn ...
      * @return
      */
     int signum(){
@@ -157,7 +206,7 @@ public class Bruch {
     }
 
     // GET und SET Methoden - nutzt man statt immer direkt auf die Variable zu gehen, so kann man
-    // z.B. immer Prüfen ob der nenner ungleich null ist um div durch 0 zu vermeiden
+    // z.B. immer PrÃ¼fen ob der nenner ungleich null ist um div durch 0 zu vermeiden
 
     public int getZaheler() {
         return zaheler;
