@@ -1,4 +1,4 @@
-Kapitel 5 Klassen und Objekte
+/**Kapitel 5 Klassen und Objekte
 
 Definitionen
 
@@ -44,7 +44,7 @@ Werden neben weiteren Konstruktoren auch ein leerer Konstruktor benötigt, so mu
 
 Ich habe mich für Ihr Beispiel entschieden, da es sehr gut alle oben erklärten Bestanteile eines Objektorientierten 
 Java Programms beinhaltet. Desweiteren hätte ich selbst kein anschaulicheres Beispiel hinbekommen.
-
+**/
 
 
 package JavaUebung5;
